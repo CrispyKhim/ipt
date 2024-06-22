@@ -1,0 +1,45 @@
+{% extends "/users/user-base.html" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Share • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+<!-- Padding between content and navigation bar -->
+<div style="padding-top: 8%;"></div>
+
+<center>
+    <h1>Share</h1>
+    <hr style="width: 40%;">
+    <p>Spread the awareness and invite your friends!</p>
+</center>
+
+
+
+
+<div class="container text-center" style="margin-top: 20%;">
+    <div class="row row-cols-3">
+        <div class="col">
+            <img src="/static/t6w5tgw9.png" class="rounded float-center" alt="cat" width="90%" height="auto" style="padding-bottom: 10%;">
+            <p>Share</p>
+        </div>
+        <div class="col">
+            <img src="/static/t6w5tgw9.png" class="rounded float-center" alt="cat" width="90%" height="auto" style="padding-bottom: 10%;">
+            <center><p>Copy Link</p></center>
+        </div>
+        <div class="col">
+            <img src="/static/t6w5tgw9.png" class="rounded float-center" alt="cat" width="90%" height="auto" style="padding-bottom: 10%;">
+            <p>QR Code</p>
+        </div>
+    </div>
+    
+    <!-- Return to home page -->
+    <div class="row col" style="margin-top: 10%;"><center>
+        <a class="btn btn-secondary" type="button" href="/home/{{ username }}" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+    </center></div>
+</div>
+
+
+{% endblock %}

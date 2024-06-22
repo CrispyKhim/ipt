@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "index" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Index • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+
+<!-- 
+    Introduction
+-->
+<div class="container text-start" style="padding-top: 8%; padding-bottom: 10%;">
+  <div class="row col">
+    <h1>Explore the world of domestic cats</h1>
+    <hr>
+  </div>
+  <div class="col">
+    <p>We're supplying users with the reliable and likeable cat sources!</p>
+  </div>
+  <div class="col">
+    <a class="btn btn-primary" href="/login" role="button" target="_self">Register</a>
+  </div>
+</div>
+
+
+<div class="container text-center" style="padding-top: 15%;">
+  <!-- Cat Search Demo -->
+  <div class="row col">
+    <h1>Cat Search</h1>
+    <hr>
+  </div>
+  <div class="row col">
+    <p>Want to find a specific domestic breed or want to discover more cats?</p>
+  </div>
+  <div class="row col">
+    <p>[INSERT SAMPLE DEMONSTRATION VIDEO]</p>
+  </div>
+
+  <br>
+
+  <!-- Daily Cat Fact Demo -->
+  <div class="row col">
+    <h1>Daily Cat Fact</h1>
+    <hr>
+  </div>
+  <div class="row col">
+    <p>Interested to learn a cat fact everyday?</p>
+    <p>Our web application provides you with the latest and sublime cat facts!</p>
+  </div>
+  <div class="row col">
+    <p>[INSERT SAMPLE DEMONSTRATION VIDEO]</p>
+  </div>
+
+  <br>
+
+  <!-- Random Cat Image Demo -->
+  <div class="row col">
+    <h1>Random Cat Images</h1>
+    <hr>
+  </div>
+  <div class="row col">
+    <p>A wild cat appeared!</p>
+  </div>
+  <div class="row col">
+    <p>[INSERT SAMPLE DEMONSTRATION VIDEO]</p>
+  </div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "/users/user-base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "index" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Home • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+<div class="hero-image" style="padding-bottom: 15%;">
+  <div class="container text-start" style="padding-top: 20%;">
+    <div class="row col">
+      <h1>Welcome, {{username}}!</h1>
+      <hr>
+    </div>
+    <div class="row col">
+      <p>[insert daily cat fact API]</p>
+    </div>
+  </div>
+</div>
+
+<!-- Buttons -->
+<div class="container text-center" style="margin-top: 6%;">
+  <div class="row row-cols-2">
+    <div class="d-grid gap-2 col-6">
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/favourites" role="button">🔖 Favourites</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/share" role="button">🌐 Share</a>
+    </div>
+    <div class="d-grid gap-2 col-6">
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/connect" role="button">📱 Connect</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/learn" role="button">🐾 Learn</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+  Form to POST user request 
+-->
+<center>
+  <form method="POST" action="/home/{{ username }}" target="_self" style="padding: 8% 0px;">
+      <input type="text" name="search" placeholder="🔎 Search" style="min-width: 80%;">
+      <input type="submit" value="Search">
+  </form>
+</center>
+
+{% if request.method == 'POST': %}
+<div class="container text-center">
+  <div class="row col border border-4" style="padding: 2%;">
+    {% include '/users/search.html' %}
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

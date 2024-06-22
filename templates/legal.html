@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "about" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Legal • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+
+<!-- 
+  Content
+-->
+<div class="container text-start">
+    <div class="row row-cols-1">
+      <div class="col">
+        <h1>Legal</h1>
+        <hr>
+      </div>
+      <div class="col">
+        <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is a web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
+      </div>
+
+      <div class="col">
+        <h1>Technology</h1>
+        <hr>
+      </div>
+      <div class="col">
+        <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is built with Python and the Flask framework. The open-source code provided by Bootstrap was utilised and referenced to highlight credibility. This included the implementation of HTML, CSS, and JavaScript code with styling and special effects added.</p>
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "login" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Sign in • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+<h1 style="text-align: center;">Login / Register</h1>
+
+
+<!-- 
+  Form
+-->
+<div class="container text-start" style="padding-top: 5%; max-width: 60%;">
+  <form method="POST" action="/login" target="_self">
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="Email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email" placeholder="Email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <!-- Username -->
+    <div class="mb-3">
+      <label for="Username" class="form-label">Username</label>
+      <input type="text" class="form-control" aria-label="Username" placeholder="Username" name="username">
+      <div class="form-text">What shall we address you?</div>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input type="password" id="Password" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" name="password">
+      <div id="passwordHelpBlock" class="form-text">
+        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+      </div>
+    </div>
+
+    <!-- Navigate the user into the home page -->
+    <center>
+      <hr style="width: 40%;">
+      <div class="row" style="padding: 6%;">
+        <div class="col">
+          <button type="submit" class="btn btn-primary" style="font-size: x-large; min-width: 50%;">Login</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 30%;">Back</a>
+        </div>
+      </div>
+    </center>
+  </form>
+</div>
+
+
+{% endblock %}

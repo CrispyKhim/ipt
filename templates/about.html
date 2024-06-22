@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "about" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>About • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+
+<!-- 
+  Content
+-->
+<div class="container text-start">
+  <div class="row row-cols-1">
+    <!-- About -->
+    <div class="col">
+      <h1>About</h1>
+      <hr>
+    </div>
+    <div class="col">
+      <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is a web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
+    </div>
+
+    <!-- Technology -->
+    <div class="col" id="heading-col">
+      <h1>Technology</h1>
+      <hr>
+    </div>
+    <div class="col">
+      <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is built with Python and the Flask framework. The open-source code provided by Bootstrap was utilised and referenced to highlight credibility. This included the implementation of HTML, CSS, and JavaScript code with styling and special effects added.</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="col" id="heading-col">
+      <h1>Social Media</h1>
+      <hr>
+    </div>
+  </div>
+  <!-- Social Media Icons -->
+  <div class="row row-cols-3">
+    <div class="col">
+      <img src="/static/t6w5tgw9.png" class="rounded float-center" alt="cat" width="90%" height="auto" style="padding-bottom: 10%;">
+      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Instagram</a></p></center>
+    </div>
+    <div class="col">
+      <img src="/static/t6w5tgw9.png" class="rounded float-center" alt="cat" width="90%" height="auto" style="padding-bottom: 10%;">
+      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">X / Twitter</a></p></center>
+    </div>
+    <div class="col">
+      <img src="/static/t6w5tgw9.png" class="rounded float-center" alt="cat" width="90%" height="auto" style="padding-bottom: 10%;">
+      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Facebook</a></p></center>
+    </div>
+  </div>
+
+
+<!-- Feedback Form -->
+  <div class="row row-cols-1">
+    <div class="col" id="heading-col">
+      <h1>Got feedback?</h1>
+      <hr>
+    </div><div class="col">
+      <p>Got issues or want to contact us? Provide us with your information and we'll get back to you!</p>
+    </div>
+    <div class="mb-3">
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1">Email address</span>
+        <input type="text" class="form-control" placeholder="johnsmith@example.com" aria-label="Email" aria-describedby="basic-addon1 emailHelp" id="Email" name="email">
+      </div>
+      <div id="emailHelp" class="form-text">We'll use your email to contact you.</div>
+    </div>
+    
+    <div class="input-group">
+      <span class="input-group-text">Feedback / Comment</span>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+  </div>
+</div>
+{% endblock %}

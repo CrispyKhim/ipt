@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+<!-- Initialise active page for navigation -->
+{% set active_page = "index" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Error • Felis Catus</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container text-start" style="padding-top: 10%;">
+    <div class="row row-cols-1">
+      <div class="col">
+        <h1>Unexpected 404 Error</h1>
+        <hr>
+      </div>
+      <div class="col">
+        <p>It appears you have entered the wrong page, or I broke something lol.</p>
+      </div>
+      <div class="col">
+        <a class="btn btn-primary" href="/" role="button" target="_self">Return to home page</a>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
