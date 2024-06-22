@@ -1,4 +1,6 @@
-{% extends "/users/user-base.html" %}
+{% extends "/base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "learn" %}
 
 <!-- Block Head -->
 {% block head %}
@@ -49,7 +51,7 @@
 <div class="container text-center">
   <!-- Return to home page -->
   <div class="row col" style="margin-top: 10%;"><center>
-    <a class="btn btn-secondary" type="button" href="/home/{{ username }}" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+    <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
   </center></div>
 </div>
 {% endblock %}

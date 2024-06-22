@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 <!-- Initialise active page for navigation -->
-{% set active_page = "about" %}
+{% set active_page = "legal" %}
 
 <!-- Block Head -->
 {% block head %}
@@ -14,22 +14,50 @@
   Content
 -->
 <div class="container text-start">
-    <div class="row row-cols-1">
-      <div class="col">
-        <h1>Legal</h1>
-        <hr>
-      </div>
-      <div class="col">
-        <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is a web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
-      </div>
-
-      <div class="col">
-        <h1>Technology</h1>
-        <hr>
-      </div>
-      <div class="col">
-        <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is built with Python and the Flask framework. The open-source code provided by Bootstrap was utilised and referenced to highlight credibility. This included the implementation of HTML, CSS, and JavaScript code with styling and special effects added.</p>
-      </div>
+  <div class="row row-cols-1">
+    <!-- Privacy Policy -->
+    <div class="col" id="heading-col">
+      <h1>Privacy Policy</h1>
+      <hr>
+      <p><span class="fst-italic fw-medium">Felis Catus</span> is an interactive web application created by Christopher Khim.</p>
+      <p>The privacy policy describes our policies and the process of collection, organising, and processing of your information when you use our service.</p>
+      <p>By using our services, you agree to the collecting and usage of your personal information for the purpose of our service, in accordance with the privacy policy. </p>
     </div>
+
+
+    <!-- Copyright -->
+    <div class="col" id="heading-col">
+      <h1>Copyright</h1>
+      <hr>
+      <h2>What is Copyright?</h2>
+      <p>Copyright is the right to use, copy, or control the work of authors or copyright holders. It protects the owner’s rights to control how their product is used, however, it only protects the expression or original ideas and not the user of the same idea. Personnels must seek permission of the copyright holder for any material that is used in a product. Graphics, texts, modules, and other media types must not be used unless approved by the copyright holder. If the works are used in a way that violates copyright laws, legal action may be taken. </p>
+    </div>
+
+  <!-- Data Management -->
+  <div class="col" id="heading-col">
+    <h1>Data Management</h1>
+    <hr>
+    <h2>Collecting and Using Personal Data</h2>
+    <p>While using our service, you may be asked to provide us with certain data that enables us to identify you. Personal information may include, but not limited to:</p>
+    <ul>
+      <li>Name</li>
+      <li>Email</li>
+    </ul>
+    <p>Your </p>
+
+
+    <!-- Information from Third-Party Services -->
+    <h2>Information from Third-Party Services</h2>
+    <p>adad</p>
+  </div>
+
+</div>
+
+
+<div class="container text-center">
+  <!-- Return to home page -->
+  <div class="row col" style="margin-top: 10%;"><center>
+    <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+  </center></div>
 </div>
 {% endblock %}

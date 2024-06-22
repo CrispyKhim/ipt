@@ -18,8 +18,10 @@
   -->
   <!-- href, id, caption -->
   {% set navigation_bar = [
-    ('/', 'index', 'Index'),
-    ('/about', 'about', 'About')
+    ('/', 'index', 'Home'),
+    ('/about', 'about', 'About'),
+    ('/legal', 'legal', 'Legal'),
+    ('/learn', 'learn', 'Learn')
   ] -%}
   {% set active_page = active_page|default('index') -%}
   {% if active_page != "login" %}
@@ -43,7 +45,7 @@
     <!-- Button -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <form>
-        <a class="btn btn-primary" href="/login" role="button" target="_self"><i class="bi bi-person-circle" style="font-size: x-large;"></i></a>
+        <a class="btn btn-primary" href="/login" role="button" target="_self"><i class="bi bi-person-circle" style="font-size: 2vw;"></i></a>
       </form>
     </div>
   </nav>
@@ -78,7 +80,7 @@
       </div>
       <div class="col text-end">
         <!-- INSERT PAGE LINKING TO THE LEGAL AND PRIVACY ISSUES -->
-        <p>Legal</p>
+        <p><a href="/legal" class="link-underline-primary">Legal</a></p>
       </div>
     </div>
   </div>

@@ -14,14 +14,14 @@
   Content
 -->
 <div class="container text-start">
-  <div class="row row-cols-1">
+  <div class="row row-cols-1" id="heading-col">
     <!-- About -->
     <div class="col">
       <h1>About</h1>
       <hr>
     </div>
     <div class="col">
-      <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is a web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
+      <p><span class="fst-italic fw-medium">Felis Catus</span> is an interactive web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
     </div>
 
     <!-- Technology -->
@@ -46,11 +46,11 @@
   <!-- Social Media Icons -->
   <div class="row row-cols-3">
     <div class="col">
-      <a class="btn btn-danger shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-instagram" style="font-size: 10vw; text-align: center;"></i></a>
-      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Instagram</a></p></center>
+      <a class="btn btn-danger shadow-drop-2-center" href="https://www.youtube.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-youtube" style="font-size: 10vw; text-align: center;"></i></a>
+      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Youtube</a></p></center>
     </div>
     <div class="col">
-      <a class="btn btn-secondary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
+      <a class="btn btn-secondary shadow-drop-2-center" href="https://x.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
       <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Twitter / X</a></p></center>
     </div>
     <div class="col">
@@ -61,28 +61,47 @@
 </div>
 
 
-
-<div class="container text-start">
-<!-- Feedback Form -->
-  <div class="row row-cols-1">
-    <div class="col" id="heading-col">
-      <h1>Got feedback?</h1>
-      <hr>
-    </div><div class="col">
-      <p>Got issues or want to contact us? Provide us with your information and we'll get back to you!</p>
-    </div>
+<!-- 
+  Feedback Form 
+-->
+<div class="container text-start" style="padding-top: 4%;">
+  <h1>Got feedback?</h1>
+  <hr>
+{% if feedback == False %}
+  <p>Got problems or want to contact us? Provide us with your information and we'll get back to you!</p>
+  <form method="POST" action="/about" target="_self">
     <div class="mb-3">
-      <div class="input-group">
-        <span class="input-group-text" id="basic-addon1">Email address</span>
-        <input type="text" class="form-control" placeholder="johnsmith@example.com" aria-label="Email" aria-describedby="basic-addon1 emailHelp" id="Email" name="email">
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="feedback-email">
+        <label for="floatingInput">Email address</label>
       </div>
-      <div id="emailHelp" class="form-text">We'll use your email to contact you.</div>
     </div>
     
-    <div class="input-group">
-      <span class="input-group-text">Feedback / Comment</span>
-      <textarea class="form-control" aria-label="With textarea"></textarea>
+    <!-- Comments - text field -->
+    <div class="mb-3">
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="feedback-comment"></textarea>
+        <label for="floatingTextarea2">Comments</label>
+      </div>
     </div>
-  </div>
+
+    <!-- Submit form button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% else %}
+<p>Thank you for your feedback! We will get back to you as soon as possible to resolve the issue!</p>
+{% set feedback = False %}
+<!-- Submit form button -->
+<a  type="button" role="button" class="btn btn-primary" href="/about">Submit another feedback?</a>
+{% endif %}
+
+
+
+<div class="container text-center">
+  <!-- Return to home page -->
+  <div class="row col" style="margin-top: 10%;"><center>
+    <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+  </center></div>
 </div>
 {% endblock %}
