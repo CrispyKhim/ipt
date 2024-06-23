@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 import requests
 
+
 app = Flask(__name__)
 
 # Main Index Page
@@ -9,16 +10,15 @@ def index():
     return render_template('index.html')
 
 # 404 Error page
-@app.route('/<name>')
-def error():
-    return render_template('error.html')
+@app.route('/<string:name>')
+def error(name):
+    return render_template('error.html', name=name)
 
 # About Page
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     feedback = False
     if request.method == 'POST':
-        
         # Feedback saved
         feedback = True
         email = request.form.get('feedback-email') # Email saved
@@ -32,6 +32,11 @@ def about():
 @app.route('/learn')
 def learn():
     return render_template('learn.html')
+
+# legal Page
+@app.route('/features')
+def features():
+    return render_template('features.html')
 
 # legal Page
 @app.route('/legal')
@@ -57,13 +62,7 @@ def home(username):
     if request.method == 'POST':
         check = True
         search_term = request.form.get('search')
-        # Get image from API
-        response = requests.get("https://api.thecatapi.com/v1/images/search?limit=1&random=RAND&api_key='live_ug7L3YzsrAvPthkUAcOVWqHTJfnd4b6u1NFao0EhLllQDwmokv9iEXeUgQOuoljn'").json()
-        # Get the image from the result
-        image_url = response[0]['url']
-        width = response[0]['width'] * 0.9
-        height = response[0]['height'] * 0.9
-        return render_template('/users/Home.html', username=username, search_term=search_term, image_url=image_url, check=check, width=width, height=height)
+        return render_template('/users/Home.html', username=username, search_term=search_term, check=check)
     else:
         return render_template('/users/Home.html', username=username, check=check)
 
@@ -77,18 +76,15 @@ def favourites(username):
 def share(username):
     return render_template('/users/share.html', username=username)
 
-# Connect Page
-@app.route('/home/<string:username>/connect')
-def connect(username):
-    return render_template('/users/connect.html', username=username)
+# Browse Page
+@app.route('/home/<string:username>/browse')
+def browse(username):
+    return render_template('/users/browse.html', username=username)
 
 # Learn Page - After login
-@app.route('/home/<string:username>/learn')
-def Learn_user(username):
-    return render_template('/users/learn.html', username=username)
-
-
-
+@app.route('/home/<string:username>/listen')
+def listen(username):
+    return render_template('/users/listen.html', username=username)
 
 
 if __name__ == '__main__':

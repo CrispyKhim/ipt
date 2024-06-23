@@ -16,19 +16,52 @@
   <!-- 
     Navigation Bar
   -->
-  <nav class="navbar navbar-expand-lg" style="background-color: lightgray; padding: 1% 6% 1% 5%;">
-    <div class="container">
-      <!-- Website Name -->
-      <a class="navbar-brand fst-italic fw-medium" href="/">Felis Catus</a>
+  <!-- href, id, caption -->
+  {% set navigation_bar = [
+    ('/home/{{username}}', 'home', 'Home'),
+    ('/home/{{username}}/favourites', 'favourites', 'Favourites'),
+    ('/home/{{username}}/browse', 'browse', 'Browse'),
+    ('/home/{{username}}/listen', 'listen', 'Listen'),
+    ('/learn', 'learn', 'Learn'),
+    ('/home/{{username}}/share', 'share', 'Share')
+  ] -%}
+  {% set active_page = active_page|default('home') -%}
+  <nav class="container-fluid navbar navbar-expand-sm blur justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 74%;">
+    <!-- Website Name -->
+    <a class="navbar-brand fst-italic fw-medium text-start" href="/home/{{username}}" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
+    
+    <!-- Webpages with highlighting active page -->
+    <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
+      {% for href, id, caption in navigation_bar %}
+        <li class="nav-item">
+          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button">
+            <!-- Content -->
+            <div class="GlowingButton__content">
+                <span>{{ caption|e }}</span>
+                <span>{{ caption|e }}</span>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="justify-content-end">
       <form>
-        <a class="btn btn-primary" href="/login" role="button" target="_self"><i class="bi bi-box-arrow-left" style="font-size: 2vw;"></i></a>
+        <a class="btn btn-primary" href="/login" role="button" target="_self" style="margin-left: 8vw;"><i class="bi bi-box-arrow-left" style="font-size: 2vw;"></i></a>
       </form>
+    </div>
   </nav>
+
+  {% if active_page != 'home'%}
+  <!-- Padding between content and navigation bar -->
+  <div style="padding-bottom: 15%;" id="top"></div>
+  {% endif %}
 
   <!-- 
     Content from other files appear here
   -->
   {% block body %}{% endblock %}
+
 
 
   <!-- 

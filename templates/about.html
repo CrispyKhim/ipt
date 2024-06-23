@@ -9,28 +9,50 @@
 
 <!-- Block Body -->
 {% block body %}
+<center class="focus-in-expand-fwd">
+  <h1 style="font-size: 50px;">About</h1>
+  <hr style="width: 40%;">
+  <p>Want to know more about us?</p>
+</center>
+<!-- Interactive button w/ animation -->
+<section id="scrollDown" class="scroll">
+  <a href="#1"><span></span>Scroll Down</a>
+</section>
+
 
 <!-- 
   Content
 -->
-<div class="container text-start">
-  <div class="row row-cols-1" id="heading-col">
+<div class="container text-start" style="margin-top: 30%;" id="1">
+  <div class="row row-cols-2" id="heading-col">
     <!-- About -->
-    <div class="col">
+    <div class="col-8">
       <h1>About</h1>
       <hr>
-    </div>
-    <div class="col">
       <p><span class="fst-italic fw-medium">Felis Catus</span> is an interactive web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
     </div>
-
+    <div class="col-2">
+      <img src="/static//image/neco.png" alt="neco cat" width="400px" height="auto">
+    </div>
+  </div>
+  <div class="row row-cols-1">
     <!-- Technology -->
     <div class="col" id="heading-col">
       <h1>Technology</h1>
       <hr>
     </div>
     <div class="col">
-      <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is built with Python and the Flask framework. The open-source code provided by Bootstrap was utilised and referenced to highlight credibility. This included the implementation of HTML, CSS, and JavaScript code with styling and special effects added.</p>
+      <p><span class="navbar-brand fst-italic fw-medium">Felis Catus</span> is built using Python and the Flask framework. The open-source code provided by Bootstrap was utilised and referenced to highlight credibility. This included the implementation of HTML, CSS, and JavaScript code with styling and special effects added.</p>
+      <p>Other free services / software applications that were used in the making of this system are:</p>
+      <ul>
+        <li>Visual Studio Code</li>
+        <li>Obsidian</li>
+        <li>Blender</li>
+        <li>Soundly</li>
+        <li>Audacity</li>
+        <li>GitHub</li>
+        <li>The Cat API</li>
+      </ul>
     </div>
 
 
@@ -96,12 +118,4 @@
 <a  type="button" role="button" class="btn btn-primary" href="/about">Submit another feedback?</a>
 {% endif %}
 
-
-
-<div class="container text-center">
-  <!-- Return to home page -->
-  <div class="row col" style="margin-top: 10%;"><center>
-    <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
-  </center></div>
-</div>
 {% endblock %}

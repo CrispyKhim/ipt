@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="static/Logo.png">
-    <!-- Importing Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+    <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Animate on Scroll Library - CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 <body>
+
+  
 
   <!-- 
     Navigation Bar
@@ -20,54 +24,66 @@
   {% set navigation_bar = [
     ('/', 'index', 'Home'),
     ('/about', 'about', 'About'),
-    ('/legal', 'legal', 'Legal'),
+    ('/features', 'features', 'Features'),
     ('/learn', 'learn', 'Learn')
   ] -%}
   {% set active_page = active_page|default('index') -%}
   {% if active_page != "login" %}
-  <nav class="navbar navbar-expand-lg" style="background-color: lightgray; padding: 1% 6% 1% 5%;">
-    <div class="container">
-      <!-- Website Name -->
-      <a class="navbar-brand fst-italic fw-medium" href="/">Felis Catus</a>
-      
-      <!-- Webpages with highlighting active page -->
-      <div class="d-flex flex-row-reverse" id="navbarNav">
-        <ul class="navbar-nav" id="navigation">
-          {% for href, id, caption in navigation_bar %}
-            <li class="nav-item">
-              <a {% if id == active_page %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ href|e }}">{{ caption|e }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
+  <nav class="container-fluid navbar navbar-expand-sm blur justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 60%;">
+    <!-- Website Name -->
+    <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
+    
+    <!-- Webpages with highlighting active page -->
+    <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
+      {% for href, id, caption in navigation_bar %}
+        <li class="nav-item">
+          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button">
+            <!-- Content -->
+            <div class="GlowingButton__content">
+                <span>{{ caption|e }}</span>
+                <span>{{ caption|e }}</span>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
 
-    <!-- Button -->
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    
+
+    <div class="justify-content-end">
       <form>
-        <a class="btn btn-primary" href="/login" role="button" target="_self"><i class="bi bi-person-circle" style="font-size: 2vw;"></i></a>
+        <a class="btn btn-primary" href="/login" role="button" target="_self" style="margin-left: 8vw;"><i class="bi bi-person-circle" style="font-size: 2vw;"></i></a>
       </form>
     </div>
   </nav>
+  <!-- Padding between content and navigation bar -->
+  <div style="padding-bottom: 15%;" id="top"></div>
   
   {% else %}
   <!-- Changed navigation bar for login page -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand fst-italic fw-medium" href="/">Felis Catus</a>
+      <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
     </div>
   </nav>
+  <!-- Padding between content and navigation bar -->
+  <div style="padding-bottom: 4%;" id="top"></div>
   {% endif %}
 
-  <!-- Padding between content and navigation bar -->
-  <div style="padding-top: 8%;"></div>
+  
 
 
   <!-- 
     Content from other files appear here
   -->
   {% block body %}{% endblock %}
-
+  
+  {% if active_page != 'error' %}{% if active_page != 'login' %}
+  <!-- Back to Top button -->
+  <div class="row col" style="margin-top: 10%;"><center>
+    <a class="btn btn-danger rounded-circle" href="#top" style="font-size: 3vw;"><i class="bi bi-arrow-up-circle"></i></a>
+  </center></div>
+  {% endif %}{% endif %}
 
   <!-- 
     Footer
@@ -86,10 +102,15 @@
   </div>
 
 
-  <!-- Importing Bootstrap JavaScript -->
+  <!-- Bootstrap JavaScript CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <!-- Animate on Scroll Library CDN -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
   <script src="/static/javascript/myscripts.js"></script>
 </body>

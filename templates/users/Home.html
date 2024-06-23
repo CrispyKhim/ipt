@@ -1,4 +1,6 @@
 {% extends "/users/user-base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "home" %}
 
 <!-- Block Head -->
 {% block head %}
@@ -7,7 +9,7 @@
 
 <!-- Block Body -->
 {% block body %}
-<div class="hero-image" style="padding-bottom: 15%;">
+<div class="hero-image" style="padding-bottom: 16%;">
   <div class="container text-start" style="padding-top: 20%;">
     <div class="row col">
       <h1>Welcome, {{username}}!</h1>
@@ -23,13 +25,16 @@
 <div class="container text-center" style="margin-top: 6%;">
   <div class="row row-cols-2">
     <div class="d-grid gap-2 col-6">
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/favourites" role="button" style="font-size: 2vw;"><i class="bi bi-bookmark-check-fill" style="color: red;"></i> Favourites</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/favourites" role="button" style="font-size: 2vw;"><i class="bi bi-bookmark-check-fill"></i> Favourites</a>
       <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/share" role="button" style="font-size: 2vw;"><i class="bi bi-share"></i> Share</a>
     </div>
     <div class="d-grid gap-2 col-6">
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/connect" role="button" style="font-size: 2vw;"><i class="bi bi-people-fill"></i> Connect</a>
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/learn" role="button" style="font-size: 2vw;"><i class="bi bi-journal-text" style="color: brown;"></i> Learn</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/browse" role="button" style="font-size: 2vw;"><i class="bi bi-newspaper"></i> Browse</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/listen" role="button" style="font-size: 2vw;"><i class="bi bi-music-note-list"></i> Listen</a>
     </div>
+  </div>
+  <div class="row col">
+    <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/learn" role="button" style="font-size: 2vw; margin-top: 1vw;"><i class="bi bi-journal-text"></i> Learn</a>
   </div>
 </div>
 
@@ -37,7 +42,7 @@
 <!-- 
   Form to POST user request 
 -->
-<div class="container text-center">
+<div class="container text-center" id="searchResult">
   <form class="row row-cols-2 text-center" method="POST" action="/home/{{ username }}" target="_self" style="padding-top: 8%; padding-bottom: 4%;">
       <div class="col-11">
         <input type="text" name="search" placeholder="🔎 Search" style="max-width: 80vw" class="form-control border border-black">
@@ -49,16 +54,46 @@
 </div>
 
 
-<div class="container text-center">
-  <div class="row col border rounded-3 border-5" style="margin: 1vw;">
+
+
+
+<div class="container text-center" style="overflow: hidden;">
+  <div class="row col border rounded-3 border-5" {% if check == True %} style="margin: 1vw;" {% else %} style="padding: 10vw;" {% endif %}>
     {% if check == True %}
-      <h3>You have searched for: <span style="text-decoration: line-through;">{{search_term}}</span> Cat</h3>
-      <img src="{{ image_url }}" alt="Cat" height="{{ height }}" width="auto">
+    <h3>You have searched for: <span style="text-decoration: line-through;">{{search_term}}</span> Cat</h3>
+    
+    <!-- Cat Image -->
+    <img id="cat_image" class="cat_image"></img>
+    
+    <!-- Cat Information -->
+    <div class="cat_information">
+      <h4 id="breed_name"></h4>
+      Wiki Link: <a id="wiki_link" target="_blank"></a> <br />
+      Breed Characteristics:
+      <div id="breed_json"></div>
+    </div>
+
     {% else %}
-      <p>no results</p>
+    <h1 class="pulsate-fwd">Displaying zero results...</h1>
     {% endif %}
   </div>
 </div>
 
+<!-- Favourites button -->
+<div class="container text-start">
+  <form class="row cols text-start" method="POST" action="/home/{{ username }}" target="_self" style="padding-top: 8%; padding-bottom: 4%;">
+      <div class="col-1">
+        <a class="btn btn-primary" type="button" href="/home/{{username}}" role="button" style="font-size: x-large; min-width: 10%;"><i class="bi bi-bookmark"></i></a>
+      </div>
+  </form>
+</div>
 
+
+
+<div class="container text-center">
+  <!-- Return to home page -->
+  <div class="row col" style="margin-top: 10%;"><center>
+    <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Logout</a>
+  </center></div>
+</div>
 {% endblock %}

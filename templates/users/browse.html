@@ -1,0 +1,38 @@
+{% extends "/users/user-base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "browse" %}
+
+<!-- Block Head -->
+{% block head %}
+<title>Browse • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+
+<center class="focus-in-expand-fwd">
+    <h1 style="font-size: 50px;">Browse</h1>
+    <hr style="width: 40%;">
+    <p>Just like any other social media platform, but cats!</p>
+</center>
+<!-- Interactive button w/ animation -->
+<section id="scrollDown" class="scroll">
+    <a href="#1"><span></span>Scroll Down</a>
+</section>
+
+
+
+<div class="container text-center" style="margin-top: 30%;" id="1">
+    <div class="row col border border-4" style="padding: 2%;">
+        <center><h2><img src="/static/t6w5tgw9.png" class="rounded float-start" alt="cat" width="10%" height="auto">User #1 with profile picture and name</h2>
+    </div>
+</div>
+
+
+<div class="container text-center">
+    <!-- Return to home page -->
+    <div class="row col" style="margin-top: 10%;"><center>
+      <a class="btn btn-secondary" type="button" href="/home/{{ username }}" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+    </center></div>
+</div>
+{% endblock %}

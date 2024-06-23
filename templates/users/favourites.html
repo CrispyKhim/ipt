@@ -1,4 +1,6 @@
 {% extends "/users/user-base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "favourites" %}
 
 <!-- Block Head -->
 {% block head %}
@@ -10,19 +12,17 @@
 
 <!-- Block Body -->
 {% block body %}
-<!-- Padding between content and navigation bar -->
-<div style="padding-top: 8%;"></div>
 
 
-<center>
-    <h1 style="font-size: 50px;" class="focus-in-expand-fwd">Favourites</h1>
+<center class="focus-in-expand-fwd">
+    <h1 style="font-size: 50px;">Favourites</h1>
     <hr style="width: 40%;">
-    <p>[enter short description of page]</p>
-    <!-- Interactive button w/ animation -->
-    <section id="scrollDown" class="scroll">
-        <a href="#1"><span></span>Scroll Down</a>
-    </section>
+    <p>Reimagine your favourite cat breeds!</p>
 </center>
+<!-- Interactive button w/ animation -->
+<section id="scrollDown" class="scroll">
+    <a href="#1"><span></span>Scroll Down</a>
+</section>
 
 
 
