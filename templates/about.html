@@ -9,33 +9,37 @@
 
 <!-- Block Body -->
 {% block body %}
-<center class="focus-in-expand-fwd">
+<center class="focus-in-expand-fwd titleAbout" style="padding: 14% 0 20%">
   <h1 style="font-size: 50px;">About</h1>
   <hr style="width: 40%;">
   <p>Want to know more about us?</p>
 </center>
 <!-- Interactive button w/ animation -->
 <section id="scrollDown" class="scroll">
-  <a href="#1"><span></span>Scroll Down</a>
+  <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
 </section>
 
 
 <!-- 
   Content
 -->
-<div class="container text-start" style="margin-top: 30%;" id="1">
+
+<div class="container text-start" id="1">
   <div class="row row-cols-2" id="heading-col">
     <!-- About -->
-    <div class="col-8">
+    <div class="col-8" data-aos="fade-down-right" data-aos-duration="1000">
       <h1>About</h1>
       <hr>
       <p><span class="fst-italic fw-medium">Felis Catus</span> is an interactive web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
     </div>
-    <div class="col-2">
+    <div class="col-2" data-aos="flip-left" data-aos-duration="3000">
       <img src="/static//image/neco.png" alt="neco cat" width="400px" height="auto">
     </div>
   </div>
-  <div class="row row-cols-1">
+
+  <div class="gap"></div>
+
+  <div class="row row-cols-1" data-aos="zoom-in-left" data-aos-duration="1000">
     <!-- Technology -->
     <div class="col" id="heading-col">
       <h1>Technology</h1>
@@ -55,34 +59,42 @@
       </ul>
     </div>
 
-
+    
     
     <!-- Social Media -->
-    <div class="col" id="heading-col">
-      <h1>Social Media</h1>
-      <hr>
+    <div data-aos="zoom-in">
+      <div class="col" id="heading-col"><div class="gap"></div>
+        <h1>Social Media</h1>
+        <hr>
+      </div>
     </div>
   </div>
 </div>
 <div class="container text-center">
   <!-- Social Media Icons -->
   <div class="row row-cols-3">
-    <div class="col">
-      <a class="btn btn-danger shadow-drop-2-center" href="https://www.youtube.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-youtube" style="font-size: 10vw; text-align: center;"></i></a>
-      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Youtube</a></p></center>
+    <div data-aos="zoom-in">
+      <div class="col">
+        <a class="btn btn-danger shadow-drop-2-center" href="https://www.youtube.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-youtube" style="font-size: 10vw; text-align: center;"></i></a>
+        <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Youtube</a></p></center>
+      </div>
     </div>
-    <div class="col">
-      <a class="btn btn-secondary shadow-drop-2-center" href="https://x.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
-      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Twitter / X</a></p></center>
+    <div data-aos="zoom-in">
+      <div class="col">
+        <a class="btn btn-secondary shadow-drop-2-center" href="https://x.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
+        <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Twitter / X</a></p></center>
+      </div>
     </div>
-    <div class="col">
-      <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-facebook" style="font-size: 10vw; text-align: center;"></i></a>
-      <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Facebook</a></p></center>
+    <div data-aos="zoom-in">
+      <div class="col">
+        <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-facebook" style="font-size: 10vw; text-align: center;"></i></a>
+        <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Facebook</a></p></center>
+      </div>
     </div>
   </div>
 </div>
 
-
+<div class="gap"></div>
 <!-- 
   Feedback Form 
 -->
@@ -117,5 +129,6 @@
 <!-- Submit form button -->
 <a  type="button" role="button" class="btn btn-primary" href="/about">Submit another feedback?</a>
 {% endif %}
+
 
 {% endblock %}

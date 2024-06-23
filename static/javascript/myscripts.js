@@ -13,60 +13,55 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 // a function to show images and information of the breeds
 function showCatImageAndInformation(index) {
 
 // This will display the image of the cat
-document.getElementById("cat_image").src = storedBreeds[index].image.url;
+  document.getElementById("cat_image").src = storedBreeds[index].image.url;
 
 // This will get the breed name
-document.getElementById("breed_name").innerHTML = storedBreeds[index].name;
+  document.getElementById("breed_name").innerHTML = storedBreeds[index].name;
+
+  // This will get the breed name
+  document.getElementById("origin").innerHTML = storedBreeds[index].origin;
 
 // This will get the wiki link
-document.getElementById("wiki_link").href = storedBreeds[index].wikipedia_url;
+  document.getElementById("wiki_link").href = storedBreeds[index].wikipedia_url;
 
-document.getElementById("wiki_link").innerHTML =
-  storedBreeds[index].wikipedia_url;  
+  document.getElementById("wiki_link").innerHTML =
+    storedBreeds[index].wikipedia_url;  
 
 // This will get the characteristics of the cat
-document.getElementById("breed_json").textContent =
-  storedBreeds[index].temperament;
-}
+  document.getElementById("life_span").innerHTML = storedBreeds[index].life_span;
 
+// This will get the characteristics of the cat
+  document.getElementById("description").textContent =
+  storedBreeds[index].description;
+// This will get the characteristics of the cat
+  document.getElementById("breed_json").textContent =
+    storedBreeds[index].temperament;
+}
 
 // a function to retrieve data from the API
 fetch(url, {
-headers: {
-  "x-api-key": api_key,
-},
+  headers: {
+    "x-api-key": api_key,
+  },
 })
-.then((response) => {
-  return response.json();
-})
-.then((data) => {
-  // Storing the retrieved data from the API in our variable
-  storedBreeds = data;
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    // Storing the retrieved data from the API in our variable
+    storedBreeds = data;
 
 
-  // Using the random function to select a specific breed. Then extracting information from that breed
-  showCatImageAndInformation(getRandomInt(0, storedBreeds.length - 1));
-})
-.catch(function (error) {
-  console.log(error);
+    // Using the random function to select a specific breed. Then extracting information from that breed
+    showCatImageAndInformation(getRandomInt(0, storedBreeds.length - 1));
+  })
+  .catch(function (error) {
+    console.log(error);
 });
-
-
-
-
-// Share button
-const shareBtn = document.querySelector('.share-btn');
-const shareOptions = document.querySelector('.share-options');
-
-shareBtn.addEventListener('click', () => {
-  shareOptions.classList.toggle('active');
-})
-
 
 
 // Scroll Down Button (Index)

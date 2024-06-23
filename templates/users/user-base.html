@@ -4,37 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="static/Logo.png">
+    <link rel="icon" type="image/x-icon" href="/static/image/Logo.png">
     <!-- Importing Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     {% block head %}{% endblock %}
+    <!-- Animate on Scroll Library - CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
   <!-- 
     Navigation Bar
   -->
   <!-- href, id, caption -->
   {% set navigation_bar = [
-    ('/home/{{username}}', 'home', 'Home'),
-    ('/home/{{username}}/favourites', 'favourites', 'Favourites'),
-    ('/home/{{username}}/browse', 'browse', 'Browse'),
-    ('/home/{{username}}/listen', 'listen', 'Listen'),
+    ('/home', 'home', 'Home'),
+    ('/home/browse', 'browse', 'Browse'),
+    ('/home/listen', 'listen', 'Listen'),
     ('/learn', 'learn', 'Learn'),
-    ('/home/{{username}}/share', 'share', 'Share')
+    ('/home/contact', 'contact', 'Contact')
   ] -%}
   {% set active_page = active_page|default('home') -%}
-  <nav class="container-fluid navbar navbar-expand-sm blur justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 74%;">
+  <nav class="container-fluid navbar navbar-expand-sm justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 66%; background-color: rgb(62, 62, 62);">
     <!-- Website Name -->
-    <a class="navbar-brand fst-italic fw-medium text-start" href="/home/{{username}}" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
+    <a class="navbar-brand fst-italic fw-medium text-start" href="/home" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
     
     <!-- Webpages with highlighting active page -->
     <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
       {% for href, id, caption in navigation_bar %}
         <li class="nav-item">
-          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button">
+          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="_self" role="button" style="color: white;">
             <!-- Content -->
             <div class="GlowingButton__content">
                 <span>{{ caption|e }}</span>
@@ -47,7 +47,7 @@
 
     <div class="justify-content-end">
       <form>
-        <a class="btn btn-primary" href="/login" role="button" target="_self" style="margin-left: 8vw;"><i class="bi bi-box-arrow-left" style="font-size: 2vw;"></i></a>
+        <a class="btn btn-primary" href="/" role="button" target="_self" style="margin-left: 8vw;"><i class="bi bi-box-arrow-left" style="font-size: 2vw;"></i></a>
       </form>
     </div>
   </nav>
@@ -67,16 +67,15 @@
   <!-- 
     Footer
   -->
-  <footer>
-  <hr class="border border-primary border-3 opacity-75" style="margin-top: 10%;">
+  <footer style="background-color: white;">
+    <hr class="border border-primary border-3 opacity-75" style="margin-top: 10%;">
     <div class="container">
       <div class="row row-cols-2">
         <div class="col text-start">
-          <p>Programmed by Christopher Khim</p>
+          <p>© 2024 by Christopher Khim</p>
         </div>
         <div class="col text-end">
-          <!-- INSERT PAGE LINKING TO THE LEGAL AND PRIVACY ISSUES -->
-          <p>Legal</p
+          <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/legal">Legal</a>
         </div>
       </div>
     </div>
@@ -89,6 +88,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
   
   <script src="/static/javascript/myscripts.js"></script>
-
+  <!-- Animate on Scroll Library CDN -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

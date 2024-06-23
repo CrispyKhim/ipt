@@ -2,6 +2,7 @@
 <!-- Initialise active page for navigation -->
 {% set active_page = "browse" %}
 
+
 <!-- Block Head -->
 {% block head %}
 <title>Browse • Felis Catus</title>
@@ -10,7 +11,7 @@
 <!-- Block Body -->
 {% block body %}
 
-<center class="focus-in-expand-fwd">
+<center class="focus-in-expand-fwd" style="margin-bottom: 20%;">
     <h1 style="font-size: 50px;">Browse</h1>
     <hr style="width: 40%;">
     <p>Just like any other social media platform, but cats!</p>
@@ -22,17 +23,58 @@
 
 
 
-<div class="container text-center" style="margin-top: 30%;" id="1">
-    <div class="row col border border-4" style="padding: 2%;">
-        <center><h2><img src="/static/t6w5tgw9.png" class="rounded float-start" alt="cat" width="10%" height="auto">User #1 with profile picture and name</h2>
+<!-- 
+  Form to POST user request 
+-->
+<div class="container text-center" id="searchResult">
+    <form class="row row-cols-2 text-center" method="POST" action="/home/browse" target="_self" style="padding-top: 8%; padding-bottom: 4%;" id="1">
+        <div class="col-11">
+          <input type="text" name="search" placeholder="🔎 Search" style="max-width: 80vw" class="form-control border border-black">
+        </div>
+        <div class="col-1">
+          <button type="submit" class="btn btn-primary" value="Search">Search</button>
+        </div>
+    </form>
+  </div>
+<!-- 
+  Getting random cat image
+-->
+<div class="container text-center" style="overflow: hidden;">
+    <div class="row row-cols-1 border rounded-3 border-5">
+  
+    {% if check == True %}
+    <div class="col">
+        <p>You have searched for: <span style="text-decoration: line-through;">{{search_term}}</span></p>
+        <div class="cat_information">
+          <h4 id="breed_name" style="padding-top: 2%;"></h4>
+        </div>
     </div>
-</div>
+      <!-- Cat Image -->
+    <div class="col">
+        <div><img id="cat_image" class="img"></img></div>
+    </div>
+      
+    <!-- Cat Information -->
+    <div class="cat_information">
+        <b>Origin: </b><div id="origin"></div><br />
+        <b>Temperament: </b><div id="breed_json"></div><br />
+        <b>Life Span: </b><div id="life_span"></div><br />
+        <b>Description: </b><div id="description"></div><br />
+        <b>Wikipedia: </b><a id="wiki_link" target="_blank"></a><br />
+    </div>
+      
+      {% else %}
+      <h1 class="pulsate-fwd" style="padding: 20% 10%;">Displaying zero results...</h1>
+      {% endif %}
+    </div>
+  </div>
+
 
 
 <div class="container text-center">
     <!-- Return to home page -->
     <div class="row col" style="margin-top: 10%;"><center>
-      <a class="btn btn-secondary" type="button" href="/home/{{ username }}" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+      <a class="btn btn-secondary" type="button" href="/home" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
     </center></div>
 </div>
 {% endblock %}

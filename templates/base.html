@@ -14,9 +14,6 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-
-  
-
   <!-- 
     Navigation Bar
   -->
@@ -29,7 +26,7 @@
   ] -%}
   {% set active_page = active_page|default('index') -%}
   {% if active_page != "login" %}
-  <nav class="container-fluid navbar navbar-expand-sm blur justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 60%;">
+  <nav class="container-fluid navbar navbar-expand-sm justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 58%; background-color: rgb(62, 62, 62);">
     <!-- Website Name -->
     <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
     
@@ -37,7 +34,7 @@
     <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
       {% for href, id, caption in navigation_bar %}
         <li class="nav-item">
-          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button">
+          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button" style="color: white;">
             <!-- Content -->
             <div class="GlowingButton__content">
                 <span>{{ caption|e }}</span>
@@ -56,8 +53,9 @@
       </form>
     </div>
   </nav>
-  <!-- Padding between content and navigation bar -->
-  <div style="padding-bottom: 15%;" id="top"></div>
+
+  <!-- Padding between content and navigation bar
+  <div style="padding-bottom: 14%;" id="top"></div> -->
   
   {% else %}
   <!-- Changed navigation bar for login page -->
@@ -66,12 +64,11 @@
       <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
     </div>
   </nav>
-  <!-- Padding between content and navigation bar -->
-  <div style="padding-bottom: 4%;" id="top"></div>
+  <!-- Padding between content and navigation bar
+  <div style="padding-bottom: 4%;" id="top"></div> -->
   {% endif %}
 
   
-
 
   <!-- 
     Content from other files appear here
@@ -88,19 +85,19 @@
   <!-- 
     Footer
   -->
-  <hr class="border border-primary border-3 opacity-75" style="margin-top: 10%;">
-  <div class="container">
-    <div class="row row-cols-2">
-      <div class="col text-start">
-        <p>Programmed by Christopher Khim</p>
-      </div>
-      <div class="col text-end">
-        <!-- INSERT PAGE LINKING TO THE LEGAL AND PRIVACY ISSUES -->
-        <p><a href="/legal" class="link-underline-primary">Legal</a></p>
+  <footer style="background-color: white;">
+    <hr class="border border-primary border-3 opacity-75" style="margin-top: 10%;">
+    <div class="container">
+      <div class="row row-cols-2">
+        <div class="col text-start">
+          <p>© 2024 by Christopher Khim</p>
+        </div>
+        <div class="col text-end">
+          <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/legal">Legal</a>
+        </div>
       </div>
     </div>
-  </div>
-
+  </footer>
 
   <!-- Bootstrap JavaScript CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

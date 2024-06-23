@@ -1,0 +1,122 @@
+{% extends "/users/user-base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "contact" %}
+{% set username = request.path.split('/')[2] %}
+
+
+<!-- Block Head -->
+{% block head %}
+<title>Share • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+
+
+<center class="focus-in-expand-fwd">
+    <h1 style="font-size: 50px;">Connect</h1>
+    <hr style="width: 40%;">
+    <p>Spread the knowledge to your friends, family, and fellow cat-lovers!</p>
+</center>
+<!-- Interactive button w/ animation -->
+<section id="scrollDown" class="scroll" style="margin-bottom: 20%;">
+    <a href="#1"><span></span>Scroll Down</a>
+</section>
+
+
+<div class="container text-center" id="1">
+    <div class="row">
+        <!-- Social Media -->
+        <div data-aos="zoom-in" data-aos-duration="1800">
+            <div class="col" id="heading-col"><div class="gap"></div>
+            <h1>General Information</h1>
+            <hr>
+            </div>
+            <!-- School Details -->
+            <div class="intro">
+                <p><a href="https://homebushbo-h.schools.nsw.gov.au/" style="font-weight:bold;" target="_blank">Visit Homebush Boys High school(https://homebushbo-h.schools.nsw.gov.au/)</a></p>
+                <p><b>Phone number: </b><a href="tel:0297643611">02 9764 3611</a></p>
+                <p><b>Fax number: </b><a href="fax:0297463614">02 9746 3614</a></p>
+                <p><b>School admin email:</b> <a href="mailto:homebushbo-h.school@det.nsw.edu.au">homebushbo-h.school@det.nsw.edu.au</a></p>
+                <p><b>Postal address: </b>Bridge Road, Homebush NSW 2140</p>
+                <iframe style="border:0; display:block; margin-left:auto; margin-right:auto" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13251.651524778048!2d151.077201!3d-33.866136!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4fc14016519aac0b!2sHomebush%20Boys%20High%20School!5e0!3m2!1sen!2sau!4v1649205917749!5m2!1sen!2sau" width="800" height="600" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Social Media -->
+    <div data-aos="zoom-in">
+        <div class="col" id="heading-col"><div class="gap"></div>
+          <h1>Social Media</h1>
+          <hr>
+        </div>
+    </div>
+    <!-- Social Media Icons -->
+    <div class="row row-cols-3">
+      <div data-aos="zoom-in">
+        <div class="col">
+          <a class="btn btn-danger shadow-drop-2-center" href="https://www.youtube.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-youtube" style="font-size: 10vw; text-align: center;"></i></a>
+          <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Youtube</a></p></center>
+        </div>
+      </div>
+      <div data-aos="zoom-in">
+        <div class="col">
+          <a class="btn btn-secondary shadow-drop-2-center" href="https://x.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
+          <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Twitter / X</a></p></center>
+        </div>
+      </div>
+      <div data-aos="zoom-in">
+        <div class="col">
+          <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-facebook" style="font-size: 10vw; text-align: center;"></i></a>
+          <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Facebook</a></p></center>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- 
+  Feedback Form 
+-->
+<div class="gap"></div>
+<div class="container text-start" style="padding-top: 4%;">
+    <h1>Got feedback?</h1>
+    <hr>
+    {% if feedback == False %}
+    <p>Got problems or want to contact us? Provide us with your information and we'll get back to you!</p>
+    <form method="POST" action="/about" target="_self">
+      <div class="mb-3">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="feedback-email">
+          <label for="floatingInput">Email address</label>
+        </div>
+      </div>
+      
+      <!-- Comments - text field -->
+      <div class="mb-3">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="feedback-comment"></textarea>
+          <label for="floatingTextarea2">Comments</label>
+        </div>
+      </div>
+  
+      <!-- Submit form button -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  {% else %}
+  <p>Thank you for your feedback! We will get back to you as soon as possible to resolve the issue!</p>
+  {% set feedback = False %}
+  <!-- Submit form button -->
+  <a  type="button" role="button" class="btn btn-primary" href="/about">Submit another feedback?</a>
+  {% endif %}
+
+
+
+<!-- Return to home page -->
+<div class="row col" style="margin-top: 10%;"><center>
+    <a class="btn btn-secondary" type="button" href="/home" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+</center></div>
+
+
+{% endblock %}
