@@ -22,7 +22,7 @@
     ('/home', 'home', 'Home'),
     ('/home/browse', 'browse', 'Browse'),
     ('/home/listen', 'listen', 'Listen'),
-    ('/learn', 'learn', 'Learn'),
+    ('/home/learn', 'learn', 'Learn'),
     ('/home/contact', 'contact', 'Contact')
   ] -%}
   {% set active_page = active_page|default('home') -%}
@@ -52,10 +52,10 @@
     </div>
   </nav>
 
-  {% if active_page != 'home'%}
+  {% if active_page != 'home'%}{% if active_page != 'learn'%}
   <!-- Padding between content and navigation bar -->
   <div style="padding-bottom: 15%;" id="top"></div>
-  {% endif %}
+  {% endif %}{% endif %}
 
   <!-- 
     Content from other files appear here

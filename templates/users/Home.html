@@ -23,32 +23,18 @@
   <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
 </section>
 
+
+<hr id="1">
 <!-- Buttons -->
-<div class="container" id="1">
-  <div class="row row-cols-1">
-    <div data-aos="flip-left" data-aos-duration="1500">
-      <div class="col text-start" style="margin: 5% 0;">
-        <a class="btn btn-outline-primary" type="button" href="/home/learn" role="button" style="font-size: 2vw; width: 600px; height: 150px; padding-top: 50px;"><i class="bi bi-journal-text"></i> Learn</a>
-      </div>
+<div class="container text-center" style="margin-top: 10%;">
+  <div class="row row-cols-2">
+    <div class="d-grid gap-2 col-6">
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/favourites" role="button" style="font-size: 2vw;"><i class="bi bi-bookmark-check-fill" style="color: red;"></i> Favourites</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/share" role="button" style="font-size: 2vw;"><i class="bi bi-share"></i> Share</a>
     </div>
-  
-
-    <div data-aos="flip-right" data-aos-duration="1500">
-      <div class="col text-end" style="margin: 5% 0;">
-        <a class="btn btn-outline-primary" type="button" href="/home/contact" role="button" style="font-size: 2vw; width: 600px; height: 150px; padding-top: 50px;"><i class="bi bi-share"></i> Contact</a>
-      </div>
-    </div>
-
-    <div data-aos="flip-left" data-aos-duration="1500">
-      <div class="col text-start" style="margin: 5% 0;">
-        <a class="btn btn-outline-primary" type="button" href="/home/browse" role="button" style="font-size: 2vw; width: 600px; height: 150px; padding-top: 50px;"><i class="bi bi-newspaper"></i> Browse</a>
-      </div>
-    </div>
-
-    <div data-aos="flip-right" data-aos-duration="1500">
-      <div class="col text-end" style="margin: 5% 0;">
-        <a class="btn btn-outline-primary" type="button" href="/home/listen" role="button" style="font-size: 2vw; width: 600px; height: 150px; padding-top: 50px;"><i class="bi bi-music-note-list"></i> Listen</a>
-      </div>
+    <div class="d-grid gap-2 col-6">
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/connect" role="button" style="font-size: 2vw;"><i class="bi bi-people-fill"></i> Connect</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/learn" role="button" style="font-size: 2vw;"><i class="bi bi-journal-text" style="color: brown;"></i> Learn</a>
     </div>
   </div>
 </div>
@@ -57,7 +43,7 @@
   Getting random cat image
 -->
 <hr>
-<div class="container text-center" style="margin-top: 2%; overflow: hidden;" id="1">
+<div class="container text-center" style="margin-top: 2%; overflow: hidden;">
   <div class="row row-cols-1 border rounded-3 border-5">
       <div class="col" style="margin: 6% 0;">
           <h1>Random Cat Image Generator</h1>

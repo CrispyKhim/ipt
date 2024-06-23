@@ -86,10 +86,15 @@ def contact():
     else:
         return render_template('/users/contact.html', feedback=feedback)
 
-# Learn Page - After login
+# Listen Page
 @app.route('/home/listen')
 def listen():
     return render_template('/users/listen.html')
+
+# Learn Page
+@app.route('/home/learn')
+def userLearn():
+    return render_template('/users/user-learn.html')
 
 
 
