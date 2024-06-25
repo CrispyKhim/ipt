@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="static/Logo.png">
+    <link rel="icon" type="image/x-icon" href="/static/image/Logo.png">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -22,13 +22,14 @@
     ('/', 'index', 'Home'),
     ('/about', 'about', 'About'),
     ('/features', 'features', 'Features'),
-    ('/learn', 'learn', 'Learn')
+    ('/contact', 'contact', 'Contact'),
+    ('/legal', 'legal', 'Legal'),
   ] -%}
   {% set active_page = active_page|default('index') -%}
   {% if active_page != "login" %}
-  <nav class="container-fluid navbar navbar-expand-sm justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 58%; background-color: rgb(62, 62, 62);">
+  <nav class="container-fluid navbar navbar-expand-sm justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 56%; background-color: rgb(62, 62, 62); height: 9%; font-size: 14px;">
     <!-- Website Name -->
-    <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
+    <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 4vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
     
     <!-- Webpages with highlighting active page -->
     <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
@@ -45,11 +46,9 @@
       {% endfor %}
     </ul>
 
-    
-
     <div class="justify-content-end">
       <form>
-        <a class="btn btn-primary" href="/login" role="button" target="_self" style="margin-left: 8vw;"><i class="bi bi-person-circle" style="font-size: 2vw;"></i></a>
+        <a class="btn btn-primary" href="/login" role="button" target="_self" style="margin-left: 4vw;"><i class="bi bi-person-circle" style="font-size: 1.5vw;"></i></a>
       </form>
     </div>
   </nav>
@@ -75,31 +74,35 @@
   -->
   {% block body %}{% endblock %}
   
-  {% if active_page != 'error' %}{% if active_page != 'login' %}
+  <!-- Login Button at the end of page -->
+  {% if active_page not in ['error', 'login', 'learn', 'legal'] %}
   <div class="container text-center">
-    <hr>
+    <div data-aos="fade-up" data-aos-duration="1800">
+      <hr style="margin-top: 10%;">
 
-    <!-- The Glow Button -->
-    <a href="/login" class="GlowingButton" target="self" role="button" style="width: 500px; height: 100px; margin-top: 10%;">
-      <!-- Glow -->
-      <div class="GlowingButton__glowWrap l"><span class="GlowingButton__glow"></span></div>
-      <div class="GlowingButton__glowWrap r"><span class="GlowingButton__glow"></span></div>
-      <!-- Overlay -->
-      <span class="GlowingButton__overlay"></span>
-      <!-- Content -->
-      <div class="GlowingButton__content" style="height: 60%; color: black;">
-          <h1><span>Get Started <i class="bi bi-arrow-right" style="font-size: 2vw;"></i></span></h1>
-          <h1><span>Get Started <i class="bi bi-arrow-right" style="font-size: 2vw;"></i></span></h1>
-      </div>
-    </a>
+      <!-- The Glow Button -->
+      <a href="/login" class="GlowingButton" target="_self" role="button" style="width: 500px; height: 100px; margin-top: 10%;">
+        <!-- Glow -->
+        <div class="GlowingButton__glowWrap l"><span class="GlowingButton__glow"></span></div>
+        <div class="GlowingButton__glowWrap r"><span class="GlowingButton__glow"></span></div>
+        <!-- Overlay -->
+        <span class="GlowingButton__overlay"></span>
+        <!-- Content -->
+        <div class="GlowingButton__content" style="height: 60%; color: black;">
+            <h1><span>Get Started <i class="bi bi-arrow-right" style="font-size: 2vw;"></i></span></h1>
+            <h1><span>Get Started <i class="bi bi-arrow-right" style="font-size: 2vw;"></i></span></h1>
+        </div>
+      </a>
+    </div>
   </div>
-  {% endif %}{% endif %}
+  {% endif %}
 
   <!-- 
     Footer
   -->
-  <footer style="background-color: white;">
-    <hr class="border border-primary border-3 opacity-75" style="margin-top: 10%;">
+  {% if active_page != 'login' %}
+  <footer style="background-color: white; margin-top: 10%;">
+    <hr class="border border-primary border-3 opacity-75">
     <div class="container">
       <div class="row row-cols-2">
         <div class="col text-start">
@@ -111,6 +114,9 @@
       </div>
     </div>
   </footer>
+  {% else %}
+  <hr style="margin-top: 10%;">
+  {% endif %}
 
   <!-- Bootstrap JavaScript CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -123,5 +129,15 @@
   </script>
 
   <script src="/static/javascript/myscripts.js"></script>
+
+  <!-- three. -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+      }
+    }
+  </script>  
 </body>
 </html>

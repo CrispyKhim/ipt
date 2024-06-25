@@ -9,16 +9,17 @@
 
 <!-- Block Body -->
 {% block body %}
-<center class="focus-in-expand-fwd titleAbout" style="padding: 14% 0 20%">
-  <h1 style="font-size: 50px;">About</h1>
-  <hr style="width: 40%;">
-  <p>Want to know more about us?</p>
-</center>
-<!-- Interactive button w/ animation -->
-<section id="scrollDown" class="scroll">
-  <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
-</section>
-
+<div class="parallax"><div id="about" style="padding: 18% 0">
+  <center class="focus-in-expand-fwd">
+    <h1 style="font-size: 50px;">About</h1>
+    <hr style="width: 40%;">
+    <p>Want to know more about us?</p>
+  </center>
+  <!-- Interactive button w/ animation -->
+  <section id="scrollDown" class="scroll">
+    <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
+  </section>
+</div></div>
 
 <!-- 
   Content
@@ -33,7 +34,7 @@
       <p><span class="fst-italic fw-medium">Felis Catus</span> is an interactive web application created by Christopher Khim. The application aims to help users, like yourselves, gain insights into the world of domestic cats. This web application was developed for the HSC IPT Major Project. A multimedia system was to be developed and programmed to be interactive with various media types including texts, images, videos, audio, and animation.</p>
     </div>
     <div class="col-2" data-aos="flip-left" data-aos-duration="3000">
-      <img src="/static//image/neco.png" alt="neco cat" width="400px" height="auto">
+      <img src="/static/image/neco.png" alt="neco cat" width="400px" height="auto">
     </div>
   </div>
 
@@ -58,37 +59,90 @@
         <li>The Cat API</li>
       </ul>
     </div>
+  </div>
+</div>
+<div class="parallax">
+  <div id="space"><div class="col">
+    <center style="padding-top: 4%;"><h1 style="background-color: black; color: white; width: 80%;">This website would not be successful without a number of people!</h1></center>
+  </div></div>
+</div>
+<div class="container text-start">
+  <div class="row row-cols-2" data-aos="zoom-in-left" data-aos-duration="1000">
+    <div id="heading-col">
+      <h1>Meet the Team</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row row-cols-2" data-aos="zoom-in-left" data-aos-duration="1000">
 
-    
-    
-    <!-- Social Media -->
-    <div data-aos="zoom-in">
-      <div class="col" id="heading-col"><div class="gap"></div>
-        <h1>Social Media</h1>
-        <hr>
+    <!-- Team 1 -->
+    <div class="col">
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img class="team" src='/static/image/team1.jpg' onmouseover="this.src='/static/image/team2.jpg';" onmouseout="this.src='/static/image/team1.jpg';" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Christopher Khim</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Programmer & Designer</h6>
+              <p class="card-text">The sole member of the team. Having developed the design specifications and programmed the multimedia system, Christopher is fit to excel in IPT.</p>
+              <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank">View Profile <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team 2 -->
+    <div class="col">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img class="team" width="100%" height="auto" src='/static/image/team3.jpg' onmouseover="this.src='/static/image/referral1.png';" onmouseout="this.src='/static/image/team3.jpg';" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Neco</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Emotional Support</h6>
+              <p class="card-text">The most vital role in the development team. As the support for Christopher's physical, mental, and emotional wellbeing, this website would not have been complete without the contributions from this team member!</p>
+              <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank">View Profile <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container text-center">
-  <!-- Social Media Icons -->
-  <div class="row row-cols-3">
-    <div data-aos="zoom-in">
-      <div class="col">
-        <a class="btn btn-danger shadow-drop-2-center" href="https://www.youtube.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-youtube" style="font-size: 10vw; text-align: center;"></i></a>
-        <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Youtube</a></p></center>
-      </div>
+  <div class="row row-cols-1" data-aos="zoom-in">
+    <!-- Social Media -->
+    <div class="col" id="heading-col"><div class="gap"></div>
+      <h1>Social Media</h1>
+      <hr>
     </div>
-    <div data-aos="zoom-in">
-      <div class="col">
-        <a class="btn btn-secondary shadow-drop-2-center" href="https://x.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
-        <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Twitter / X</a></p></center>
+  
+
+    <!-- Social Media Icons -->
+    <div class="row row-cols-3">
+      <div data-aos="zoom-in">
+        <div class="col">
+          <a class="btn btn-danger shadow-drop-2-center" href="https://www.youtube.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-youtube" style="font-size: 10vw; text-align: center;"></i></a>
+          <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.youtube.com/homebushbhs">Youtube</a></p></center>
+        </div>
       </div>
-    </div>
-    <div data-aos="zoom-in">
-      <div class="col">
-        <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-facebook" style="font-size: 10vw; text-align: center;"></i></a>
-        <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Facebook</a></p></center>
+      <div data-aos="zoom-in">
+        <div class="col">
+          <a class="btn btn-secondary shadow-drop-2-center" href="https://x.com/homebushbhs" role="button" target="blank" style="margin: 10%;"><i class="bi bi-twitter-x" style="font-size: 10vw; text-align: center;"></i></a>
+          <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="https://x.com/homebushbhs">Twitter / X</a></p></center>
+        </div>
+      </div>
+      <div data-aos="zoom-in">
+        <div class="col">
+          <a class="btn btn-primary shadow-drop-2-center" href="https://www.facebook.com/homebushbhs/" role="button" target="blank" style="margin: 10%;"><i class="bi bi-facebook" style="font-size: 10vw; text-align: center;"></i></a>
+          <center class="fs-5"><p><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="https://www.facebook.com/homebushbhs/">Facebook</a></p></center>
+        </div>
       </div>
     </div>
   </div>

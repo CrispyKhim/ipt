@@ -4,6 +4,12 @@ from cat_api import get_random_cat_image
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
+global username
+try:
+    username = request.form.get('login-username') # Username saved
+except:
+    username = "" # Username saved
+
 # Main Index Page
 @app.route('/')
 def index():
@@ -27,11 +33,6 @@ def about():
     else:
         return render_template('about.html', feedback=feedback)
 
-# Learn Page
-@app.route('/learn')
-def learn():
-    return render_template('learn.html')
-
 # legal Page
 @app.route('/features')
 def features():
@@ -42,6 +43,19 @@ def features():
 def legal():
     return render_template('legal.html')
 
+# Contact Page
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    feedback = False
+    if request.method == 'POST':
+        # Feedback saved
+        feedback = True
+        email = request.form.get('feedback-email') # Email saved
+        comment = request.form.get('feedback-comment') # Comment saved
+        return render_template('/contact.html', feedback=feedback)
+    else:
+        return render_template('/contact.html', feedback=feedback)
+
 
 # Login / Register Page
 @app.route('/login', methods=['GET', 'POST'])
@@ -51,16 +65,26 @@ def login():
         email = request.form.get('login-email') # Email saved
         username = request.form.get('login-username') # Username saved
         password = request.form.get('login-password') # Password saved
-        return redirect(url_for('home'))
+        return redirect(url_for('home', username=username))
     else:
         return render_template('login.html')
 
+# Home Page
+@app.route('/redirectHome', methods=['GET', 'POST'])
+def redirectHome():
+    global username
+    return redirect(url_for('home', username=username))
 
 # Home Page
-@app.route('/home', methods=['GET', 'POST'])
-def home():
+@app.route('/<string:username>/home', methods=['GET', 'POST'])
+def home(username):
+    return render_template('/users/Home.html', username=username)
+
+# Home Page
+@app.route('/home/random', methods=['GET', 'POST'])
+def random():
     cat_image = get_random_cat_image()
-    return render_template('/users/Home.html', cat_image=cat_image)
+    return render_template('/users/random.html', cat_image=cat_image)
         
 # Browse Page
 @app.route('/home/browse', methods=['GET', 'POST'])
@@ -73,19 +97,6 @@ def browse():
     else:
         return render_template('/users/browse.html')
 
-# Contact Page
-@app.route('/home/contact', methods=['GET', 'POST'])
-def contact():
-    feedback = False
-    if request.method == 'POST':
-        # Feedback saved
-        feedback = True
-        email = request.form.get('feedback-email') # Email saved
-        comment = request.form.get('feedback-comment') # Comment saved
-        return render_template('/users/contact.html', feedback=feedback)
-    else:
-        return render_template('/users/contact.html', feedback=feedback)
-
 # Listen Page
 @app.route('/home/listen')
 def listen():
@@ -93,8 +104,8 @@ def listen():
 
 # Learn Page
 @app.route('/home/learn')
-def userLearn():
-    return render_template('/users/user-learn.html')
+def learn():
+    return render_template('/users/learn.html')
 
 
 

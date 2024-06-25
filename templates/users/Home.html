@@ -1,7 +1,6 @@
 {% extends "/users/user-base.html" %}
 <!-- Initialise active page for navigation -->
 {% set active_page = "home" %}
-{% set username = request.path.split('/')[2] %}
 
 <!-- Block Head -->
 {% block head %}
@@ -10,58 +9,36 @@
 
 <!-- Block Body -->
 {% block body %}
-<div class="hero-image" style="padding-bottom: 20%;">
+<div class="parallax"><div id="index" style="padding-bottom: 20%;">
   <div class="container text-start" style="padding-top: 13%;">
     <div class="row col slide-in-elliptic-left-fwd">
+      {% if username != "" %}
+      <h1 style="font-size: 10vw;">Welcome, {{username}}!</h1>
+      {% else %}
       <h1 style="font-size: 10vw;">Welcome!</h1>
+      {% endif %}
       <hr>
     </div>
   </div>
-</div>
-<!-- Interactive button w/ animation -->
-<section id="scrollDown" class="scroll">
-  <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
-</section>
-
+  <!-- Interactive button w/ animation -->
+  <section id="scrollDown" class="scroll">
+    <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
+  </section>
+</div></div>
 
 <hr id="1">
 <!-- Buttons -->
-<div class="container text-center" style="margin-top: 10%;">
+<div class="container text-center" style="margin-top: 6%;">
   <div class="row row-cols-2">
     <div class="d-grid gap-2 col-6">
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/favourites" role="button" style="font-size: 2vw;"><i class="bi bi-bookmark-check-fill" style="color: red;"></i> Favourites</a>
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/share" role="button" style="font-size: 2vw;"><i class="bi bi-share"></i> Share</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/browse" role="button" style="font-size: 2vw;"><i class="bi bi-share"></i> Browse</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/learn" role="button" style="font-size: 2vw;"><i class="bi bi-bookmark-check-fill"></i> Learn</a>
     </div>
     <div class="d-grid gap-2 col-6">
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/connect" role="button" style="font-size: 2vw;"><i class="bi bi-people-fill"></i> Connect</a>
-      <a class="btn btn-outline-primary" type="button" href="/home/{{ username }}/learn" role="button" style="font-size: 2vw;"><i class="bi bi-journal-text" style="color: brown;"></i> Learn</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/listen" role="button" style="font-size: 2vw;"><i class="bi bi-journal-text"\></i> Listen</a>
+      <a class="btn btn-outline-primary" type="button" href="/home/random" role="button" style="font-size: 2vw;"><i class="bi bi-dice-5"></i> Random</a>
     </div>
   </div>
 </div>
 
-<!-- 
-  Getting random cat image
--->
-<hr>
-<div class="container text-center" style="margin-top: 2%; overflow: hidden;">
-  <div class="row row-cols-1 border rounded-3 border-5">
-      <div class="col" style="margin: 6% 0;">
-          <h1>Random Cat Image Generator</h1>
-          <div id="cat-container" style="margin: 2% 0;">
-              <img id="cat_image" src="{{ cat_image.url }}" alt="Random Cat">
-          </div>
-          <center>
-              <a class="btn btn-primary" type="button" href="/home" role="button" style="font-size: large; max-width: 30%;">Randomise</a>
-          </center>
-      </div>
-  </div>
-</div>
-
-
-<div class="container text-center">
-  <!-- Return to home page -->
-  <div class="row col" style="margin-top: 10%;"><center>
-    <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Logout</a>
-  </center></div>
-</div>
 {% endblock %}

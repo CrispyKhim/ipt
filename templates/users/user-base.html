@@ -19,22 +19,22 @@
   -->
   <!-- href, id, caption -->
   {% set navigation_bar = [
-    ('/home', 'home', 'Home'),
+    ('/redirectHome', 'home', 'Home'),
     ('/home/browse', 'browse', 'Browse'),
     ('/home/listen', 'listen', 'Listen'),
     ('/home/learn', 'learn', 'Learn'),
-    ('/home/contact', 'contact', 'Contact')
+    ('/home/random', 'random', 'Random')
   ] -%}
   {% set active_page = active_page|default('home') -%}
-  <nav class="container-fluid navbar navbar-expand-sm justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 66%; background-color: rgb(62, 62, 62);">
+  <nav class="container-fluid navbar navbar-expand-sm justify-content-center d-flex fixed-top rounded-5" style="top: 5%; width: 56%; background-color: rgb(62, 62, 62); height: 9%; font-size: 14px;">
     <!-- Website Name -->
-    <a class="navbar-brand fst-italic fw-medium text-start" href="/home" style="margin-right: 8vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
+    <a class="navbar-brand fst-italic fw-medium text-start" href="/" style="margin-right: 4vw;"><img src="/static/image/Logo.png" width="60vw" height="auto"></a>
     
     <!-- Webpages with highlighting active page -->
     <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
       {% for href, id, caption in navigation_bar %}
         <li class="nav-item">
-          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="_self" role="button" style="color: white;">
+          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button" style="color: white;">
             <!-- Content -->
             <div class="GlowingButton__content">
                 <span>{{ caption|e }}</span>
@@ -47,21 +47,27 @@
 
     <div class="justify-content-end">
       <form>
-        <a class="btn btn-primary" href="/" role="button" target="_self" style="margin-left: 8vw;"><i class="bi bi-box-arrow-left" style="font-size: 2vw;"></i></a>
+        <a class="btn btn-primary" href="/login" role="button" target="_self" style="margin-left: 4vw;"><i class="bi bi-box-arrow-left" style="font-size: 1.5vw;"></i></a>
       </form>
     </div>
   </nav>
 
-  {% if active_page != 'home'%}{% if active_page != 'learn'%}
-  <!-- Padding between content and navigation bar -->
-  <div style="padding-bottom: 15%;" id="top"></div>
-  {% endif %}{% endif %}
 
   <!-- 
     Content from other files appear here
   -->
   {% block body %}{% endblock %}
 
+  <div class="container text-center">
+    <!-- Return to home page -->
+    <div class="row col" style="margin-top: 10%;"><center>
+  {% if active_page != 'home' %}
+      <a class="btn btn-secondary" type="button" href="/redirectHome" role="button" style="font-size: x-large; min-width: 10%;">Back</a>
+  {% else %}
+      <a class="btn btn-secondary" type="button" href="/" role="button" style="font-size: x-large; min-width: 10%;">Logout</a>
+  {% endif %}
+    </center></div>
+  </div>
 
 
   <!-- 
@@ -70,12 +76,9 @@
   <footer style="background-color: white;">
     <hr class="border border-primary border-3 opacity-75" style="margin-top: 10%;">
     <div class="container">
-      <div class="row row-cols-2">
+      <div class="row row-cols-1">
         <div class="col text-start">
           <p>© 2024 by Christopher Khim</p>
-        </div>
-        <div class="col text-end">
-          <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/legal">Legal</a>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-{% extends "/base.html" %}
+{% extends "/users/user-base.html" %}
 <!-- Initialise active page for navigation -->
 {% set active_page = "learn" %}
 
@@ -10,21 +10,21 @@
 <!-- Block Body -->
 {% block body %}
 
-
-<center class="focus-in-expand-fwd titleLearn" style="padding: 14% 0 30%">
-  <h1 style="font-size: 50px;">Learn</h1>
-  <hr style="width: 40%;">
-  <p>Get ready to learn everything about domestic cats!</p>
-</center>
-<!-- Interactive button w/ animation -->
-<section id="scrollDown" class="scroll">
-  <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
-</section>
-
+<div class="parallax"><div id="learn">
+  <center class="focus-in-expand-fwd" style="padding: 14% 0 20%">
+    <h1 style="font-size: 50px;">Learn</h1>
+    <hr style="width: 40%;">
+    <p>Get ready to learn everything about domestic cats!</p>
+  </center>
+  <!-- Interactive button w/ animation -->
+  <section id="scrollDown" class="scroll">
+    <a href="#0" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
+  </section>
+</div></div>
 <!-- 
 Content
 -->
-<hr>
+<hr id="0">
 <main>
   <!-- Table of Contents -->
   <aside class="sticky">
@@ -44,7 +44,7 @@ Content
 
   <!-- Introduction -->
   <section class="article">
-    <div class="intro" id="1">
+    <div class="intro" id="1" style="padding-top: 10%;">
       <h1>Overview</h1>
       <p>Domestic cats, known scientifically as Felis catus, are small, carnivorous mammals that have been domesticated by humans for thousands of years. Renowned for their agility, playful behaviour, and keen hunting instincts, cats are popular pets in households worldwide. They have a wide range of coat colours and patterns, making each cat unique. Cats are also known for their independent nature, often forming close bonds with their human companions while maintaining a level of autonomy. With their gentle purring, playful antics, and affectionate behaviour, domestic cats bring joy and companionship to millions of people.</p>
     </div>

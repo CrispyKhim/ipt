@@ -1,0 +1,45 @@
+{% extends "/users/user-base.html" %}
+<!-- Initialise active page for navigation -->
+{% set active_page = "random" %}
+
+
+<!-- Block Head -->
+{% block head %}
+<title>Random • Felis Catus</title>
+{% endblock %}
+
+<!-- Block Body -->
+{% block body %}
+<div class="parallax"><div id="background" style="padding: 18% 0;">
+  <center class="focus-in-expand-fwd">
+      <h1 style="font-size: 50px;">Random</h1>
+      <hr style="width: 40%;">
+      <p>Generate random cat images!</p>
+  </center>
+  <!-- Interactive button w/ animation -->
+  <section id="scrollDown" class="scroll">
+    <a href="#1" style="color: white;"><span style="border-color: white;"></span>Scroll Down</a>
+  </section>
+</div></div>
+
+
+<!-- 
+  Getting random cat image
+-->
+<hr style="margin-top: 2%">
+<div class="container text-center" style="margin-top: 2%; overflow: hidden;" id="1">
+  <div class="row row-cols-1 border rounded-3 border-5">
+      <div class="col" style="margin: 6% 0;">
+          <h1>Random Cat Image Generator</h1>
+          <div id="cat-container" style="margin: 2% 0;">
+              <img id="cat_image random" src="{{ cat_image.url }}" alt="Random Cat" class="img">
+          </div>
+          <center>
+              <a class="btn btn-primary" type="button" href="/home/random" role="button" style="font-size: large; max-width: 30%;">Randomise</a>
+          </center>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}
