@@ -35,7 +35,7 @@
     <ul class="navbar-nav nav-underline" id="navigation" style="vertical-align: baseline;">
       {% for href, id, caption in navigation_bar %}
         <li class="nav-item">
-          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="self" role="button" style="color: white;">
+          <a {% if id == active_page %} class="nav-link active GlowingButton" {% else %} class="nav-link GlowingButton" {% endif %} aria-current="page" href="{{ href|e }}" target="_self" role="button" style="color: white;">
             <!-- Content -->
             <div class="GlowingButton__content">
                 <span>{{ caption|e }}</span>
