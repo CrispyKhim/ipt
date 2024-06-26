@@ -73,6 +73,11 @@ def login():
 # Home Page
 @app.route('/redirectHome', methods=['GET', 'POST'])
 def redirectHome():
+    global username
+    try:
+        username = request.form.get('login-username') # Username saved
+    except:
+        username = "" # Username saved
     return redirect(url_for('home', username=username))
 
 # Home Page
