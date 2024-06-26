@@ -100,7 +100,7 @@ def browse():
 # Listen Page
 @app.route('/home/listen')
 def listen():
-    return render_template('/users/listen.html')
+    return render_template('/templates/users/listen.html')
 
 # Learn Page
 @app.route('/home/learn')
