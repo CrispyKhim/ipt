@@ -76,8 +76,6 @@ def login():
 # Home Page
 @app.route('/redirectHome', methods=['GET', 'POST'])
 def redirectHome():
-    global username
-
     return redirect(url_for('home', username=username))
 
 # Home Page
