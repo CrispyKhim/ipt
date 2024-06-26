@@ -4,6 +4,7 @@ from cat_api import get_random_cat_image
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
+
 global username
 try:
     username = request.form.get('login-username') # Username saved
@@ -72,7 +73,6 @@ def login():
 # Home Page
 @app.route('/redirectHome', methods=['GET', 'POST'])
 def redirectHome():
-    global username
     return redirect(url_for('home', username=username))
 
 # Home Page
@@ -106,8 +106,6 @@ def vocal():
 @app.route('/home/learn')
 def learn():
     return render_template('/users/learn.html')
-
-
 
 # Cat API
 @app.route('/random_cat')
