@@ -98,7 +98,7 @@ def browse():
         return render_template('/users/browse.html')
 
 # Listen Page
-@app.route('/home/listen')
+@app.route('/home/listen', methods=['GET', 'POST'])
 def listen():
     return render_template('/users/listen.html')
 
