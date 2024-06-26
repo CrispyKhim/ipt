@@ -64,7 +64,10 @@ def login():
     if request.method == 'POST':
         global email, username, password
         email = request.form.get('login-email') # Email saved
-        username = request.form.get('login-username') # Username saved
+        try:
+            username = request.form.get('login-username') # Username saved
+        except:
+            username = "" # Username saved
         password = request.form.get('login-password') # Password saved
         return redirect(url_for('home', username=username))
     else:
@@ -74,10 +77,7 @@ def login():
 @app.route('/redirectHome', methods=['GET', 'POST'])
 def redirectHome():
     global username
-    try:
-        username = request.form.get('login-username') # Username saved
-    except:
-        username = "" # Username saved
+
     return redirect(url_for('home', username=username))
 
 # Home Page
