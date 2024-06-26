@@ -97,10 +97,10 @@ def browse():
     else:
         return render_template('/users/browse.html')
 
-# Listen Page
-@app.route('/home/listen', methods=['GET', 'POST'])
-def listen():
-    return render_template('users/listen.html')
+# Vocal Page
+@app.route('/home/vocal', methods=['GET', 'POST'])
+def vocal():
+    return render_template('/users/vocal.html')
 
 # Learn Page
 @app.route('/home/learn')
