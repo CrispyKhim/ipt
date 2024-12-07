@@ -1,3 +1,3 @@
 # Felis Catus
-### Christopher Khim
-## IPT ASSESSMENT TASK 3
+
+This was a project for my HSC subject IPT. This is also my first time doing Flask and using an API so things might turn out weird. I am also pretty bad at HTML/CSS/JS despite me "crtl+c, crtl+v" everything...
